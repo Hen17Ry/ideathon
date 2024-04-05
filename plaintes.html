@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sidebar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="./tailwind3.js"></script> -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+</head>
+
+<body class="bg-white-600  font-[Poppins]">
+    <!-- <span class="absolute text-white text-4xl top-5 left-4 cursor-pointer" onclick="Openbar()">
+        <i class="bi bi-filter-left px-2 bg-gray-900 rounded-md"></i>
+    </span> -->
+    <div class="sidebar fixed top-0 bottom-0 lg:left-0 left-[-300px] duration-1000
+    p-2 w-[300px] overflow-y-auto text-center bg-gray-900 shadow h-screen">
+        <div class="text-gray-100 text-xl">
+            <div class="p-2.5 mt-1 flex items-center rounded-md ">
+                <!-- <i class="bi bi-app-indicator px-2 py-1 bg-blue-600 rounded-md"></i> -->
+                <img src="logo_cc_couleur.png" alt="Description de l'image" class="rounded-lg shadow-lg">
+                <!-- <h1 class="text-[15px]  ml-3 text-xl text-gray-200 font-bold">Tailwindbar</h1> -->
+                <i class="bi bi-x ml-20 cursor-pointer lg:hidden" onclick="Openbar()"></i>
+            </div>
+            <hr class="my-2 text-gray-600">
+
+            <div>
+                <div class="p-2.5 mt-3 flex items-center rounded-md 
+        px-4 duration-300 cursor-pointer  bg-gray-700">
+                    <i class="bi bi-search text-sm"></i>
+                    <input class="text-[15px] ml-4 w-full bg-transparent focus:outline-none" placeholder="Serach" />
+                </div>
+
+                <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
+                    <i class="bi bi-house-door-fill"></i>
+                    <span class="text-[15px] ml-4 text-gray-200"><a href="index.html">Faire une demande</a></span>
+                </div>
+                <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
+                    <i class="bi bi-bookmark-fill"></i>
+                    <span class="text-[15px] ml-4 text-gray-200"><a href="plaintes.html">Voir les demandes</a></span>
+
+                </div>
+                <hr class="my-4 text-gray-600">
+                <!-- <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
+                    <i class="bi bi-envelope-fill"></i>
+                    <span class="text-[15px] ml-4 text-gray-200">Messages</span>
+                </div> -->
+
+                <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
+                    <i class="bi bi-chat-left-text-fill"></i>
+                    <div class="flex justify-between w-full items-center" onclick="dropDown()">
+                        <span class="text-[15px] ml-4 text-gray-200">Profile</span>
+                        <span class="text-sm rotate-180" id="arrow">
+                            <i class="bi bi-chevron-down"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class=" leading-7 text-left text-sm font-thin mt-2 w-4/5 mx-auto" id="submenu">
+                    <h1 class="cursor-pointer p-2 hover:bg-gray-700 rounded-md mt-1">Modifier</h1>
+                    <h1 class="cursor-pointer p-2 hover:bg-gray-700 rounded-md mt-1">Paramètres</h1>
+                    <!-- <h1 class="cursor-pointer p-2 hover:bg-gray-700 rounded-md mt-1">Friends</h1> -->
+                </div>
+                <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
+                    <i class="bi bi-box-arrow-in-right"></i>
+                    <span class="text-[15px] ml-4 text-gray-200">Déconnexion</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- TOUTES VOS PLAINTES -->
+    <div class="w-5/6 h-full  absolute top-0 right-0">
+        <br><br>
+        <div class="flex justify-between items-center">
+            <span class="text-blue-500 text-4xl font-bold ml-20">Toutes vos plaintes</span>
+            <div class="flex bg-white px-1 py-1 rounded-full border border-blue-500 overflow-hidden max-w-md font-[sans-serif]">
+                <input type='email' placeholder='Search Something...' class="w-full outline-none bg-white pl-4 text-sm" />
+                <button type='button' class="bg-blue-600 hover:bg-blue-700 transition-all text-white text-sm rounded-full px-5 py-2.5">Search</button>
+            </div>
+        </div>
+        <br>
+
+        <!-- NAV BAR -->
+
+
+
+        <!-- PAINTES -->
+
+        <div class="font-[sans-serif] space-y-4 mt-4 ml-20">
+            <div class="shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-lg border-l-8 border-blue-600" role="accordion">
+                <button type="button" class="w-full text-base font-semibold text-left py-5 px-6 text-blue-600 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-current w-8 mr-4" viewBox="0 0 512 512">
+                        <path d="M227.656 357.508a15.13 15.13 0 0 0 10.692 4.426c4.007 0 7.851-1.59 10.687-4.426l53.973-53.973c5.906-5.906 5.906-15.476 0-21.383-5.903-5.902-15.477-5.902-21.38 0l-43.28 43.282-19.735-19.735c-5.906-5.902-15.476-5.902-21.383 0-5.902 5.903-5.902 15.477 0 21.383zm0 0" data-original="#000000" />
+                        <path d="M250.121 439.844c66.176 0 120.012-53.84 120.012-120.016S316.297 199.816 250.12 199.816c-66.18 0-120.016 53.836-120.016 120.012s53.84 120.016 120.016 120.016zm0-209.793c49.504 0 89.777 40.273 89.777 89.777s-40.273 89.781-89.777 89.781-89.781-40.277-89.781-89.78 40.277-89.778 89.781-89.778zm0 0" data-original="#000000" />
+                        <path d="M451.344 32.191H423.77V15.117C423.77 6.77 417 0 408.652 0s-15.117 6.77-15.117 15.117v17.074h-29.707V15.117C363.828 6.77 357.058 0 348.707 0c-8.348 0-15.117 6.77-15.117 15.117v17.074H166.652V15.117c0-8.347-6.77-15.117-15.12-15.117-8.348 0-15.118 6.77-15.118 15.117v17.074h-29.707V15.117C106.707 6.77 99.937 0 91.586 0c-8.348 0-15.117 6.77-15.117 15.117v17.074H48.89C21.934 32.191 0 54.125 0 81.086v382.023C0 490.066 21.934 512 48.89 512h402.454c26.96 0 48.89-21.934 48.89-48.89V81.085c0-26.961-21.933-48.895-48.89-48.895zm18.652 430.918c0 10.286-8.367 18.657-18.652 18.657H48.89c-10.286 0-18.657-8.371-18.657-18.657V157.9h439.762zM30.234 81.086c0-10.29 8.371-18.656 18.657-18.656h27.578v17.074c0 8.348 6.77 15.117 15.12 15.117 8.348 0 15.118-6.77 15.118-15.117V62.43h29.707v17.074c0 8.348 6.77 15.117 15.121 15.117 8.348 0 15.117-6.77 15.117-15.117V62.43H333.59v17.074c0 8.348 6.77 15.117 15.12 15.117 8.349 0 15.118-6.77 15.118-15.117V62.43h29.707v17.074c0 8.348 6.77 15.117 15.117 15.117 8.352 0 15.121-6.77 15.121-15.117V62.43h27.57C461.63 62.43 470 70.797 470 81.086v46.574H30.234zm0 0" data-original="#000000" />
+                    </svg>
+                    <span class="mr-4">Are there any special discounts or promotions available during the event.
+                        <span class="text-xs text-gray-400 mt-0.5 block">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 fill-current ml-auto shrink-0 rotate-180" viewBox="0 0 24 24">
+                        <span class="w-[68px] block text-center py-0.5 border-2 border-green-500 text-green-500 font-semibold rounded text-xs">Complète</span> </svg>
+                </button>
+                <div class="pb-5 px-6">
+                    <p class="text-sm text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor arcu,
+                        at fermentum dui. Maecenas
+                        vestibulum a turpis in lacinia. Proin aliquam turpis at erat venenatis malesuada. Sed semper, justo vitae
+                        consequat fermentum, felis diam posuere ante, sed fermentum quam justo in dui. Nulla facilisi. Nulla aliquam
+                        auctor purus, vitae dictum dolor sollicitudin vitae. Sed bibendum purus in efficitur consequat. Fusce et
+                        tincidunt arcu. Curabitur ac lacus lectus. Morbi congue facilisis sapien, a semper orci facilisis in.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="font-[sans-serif] space-y-4 mt-4 ml-20">
+            <div class="shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-lg border-l-8 border-blue-600" role="accordion">
+                <button type="button" class="w-full text-base font-semibold text-left py-5 px-6 text-blue-600 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-current w-8 mr-4" viewBox="0 0 512 512">
+                        <path d="M227.656 357.508a15.13 15.13 0 0 0 10.692 4.426c4.007 0 7.851-1.59 10.687-4.426l53.973-53.973c5.906-5.906 5.906-15.476 0-21.383-5.903-5.902-15.477-5.902-21.38 0l-43.28 43.282-19.735-19.735c-5.906-5.902-15.476-5.902-21.383 0-5.902 5.903-5.902 15.477 0 21.383zm0 0" data-original="#000000" />
+                        <path d="M250.121 439.844c66.176 0 120.012-53.84 120.012-120.016S316.297 199.816 250.12 199.816c-66.18 0-120.016 53.836-120.016 120.012s53.84 120.016 120.016 120.016zm0-209.793c49.504 0 89.777 40.273 89.777 89.777s-40.273 89.781-89.777 89.781-89.781-40.277-89.781-89.78 40.277-89.778 89.781-89.778zm0 0" data-original="#000000" />
+                        <path d="M451.344 32.191H423.77V15.117C423.77 6.77 417 0 408.652 0s-15.117 6.77-15.117 15.117v17.074h-29.707V15.117C363.828 6.77 357.058 0 348.707 0c-8.348 0-15.117 6.77-15.117 15.117v17.074H166.652V15.117c0-8.347-6.77-15.117-15.12-15.117-8.348 0-15.118 6.77-15.118 15.117v17.074h-29.707V15.117C106.707 6.77 99.937 0 91.586 0c-8.348 0-15.117 6.77-15.117 15.117v17.074H48.89C21.934 32.191 0 54.125 0 81.086v382.023C0 490.066 21.934 512 48.89 512h402.454c26.96 0 48.89-21.934 48.89-48.89V81.085c0-26.961-21.933-48.895-48.89-48.895zm18.652 430.918c0 10.286-8.367 18.657-18.652 18.657H48.89c-10.286 0-18.657-8.371-18.657-18.657V157.9h439.762zM30.234 81.086c0-10.29 8.371-18.656 18.657-18.656h27.578v17.074c0 8.348 6.77 15.117 15.12 15.117 8.348 0 15.118-6.77 15.118-15.117V62.43h29.707v17.074c0 8.348 6.77 15.117 15.121 15.117 8.348 0 15.117-6.77 15.117-15.117V62.43H333.59v17.074c0 8.348 6.77 15.117 15.12 15.117 8.349 0 15.118-6.77 15.118-15.117V62.43h29.707v17.074c0 8.348 6.77 15.117 15.117 15.117 8.352 0 15.121-6.77 15.121-15.117V62.43h27.57C461.63 62.43 470 70.797 470 81.086v46.574H30.234zm0 0" data-original="#000000" />
+                    </svg>
+                    <span class="mr-4">Are there any special discounts or promotions available during the event.
+                        <span class="text-xs text-gray-400 mt-0.5 block">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 fill-current ml-auto shrink-0 rotate-180" viewBox="0 0 24 24">
+                        <span class="w-[68px] block text-center py-0.5 border-2 border-red-500 text-red-500 font-semibold rounded text-xs">À faire</span> </svg>
+                </button>
+                <div class="pb-5 px-6">
+                    <p class="text-sm text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor arcu,
+                        at fermentum dui. Maecenas
+                        vestibulum a turpis in lacinia. Proin aliquam turpis at erat venenatis malesuada. Sed semper, justo vitae
+                        consequat fermentum, felis diam posuere ante, sed fermentum quam justo in dui. Nulla facilisi. Nulla aliquam
+                        auctor purus, vitae dictum dolor sollicitudin vitae. Sed bibendum purus in efficitur consequat. Fusce et
+                        tincidunt arcu. Curabitur ac lacus lectus. Morbi congue facilisis sapien, a semper orci facilisis in.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="font-[sans-serif] space-y-4 mt-4 ml-20" >
+            <div class="shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-lg border-l-8 border-blue-600" role="accordion">
+                <button type="button" class="w-full text-base font-semibold text-left py-5 px-6 text-blue-600 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-current w-8 mr-4" viewBox="0 0 512 512">
+                        <path d="M227.656 357.508a15.13 15.13 0 0 0 10.692 4.426c4.007 0 7.851-1.59 10.687-4.426l53.973-53.973c5.906-5.906 5.906-15.476 0-21.383-5.903-5.902-15.477-5.902-21.38 0l-43.28 43.282-19.735-19.735c-5.906-5.902-15.476-5.902-21.383 0-5.902 5.903-5.902 15.477 0 21.383zm0 0" data-original="#000000" />
+                        <path d="M250.121 439.844c66.176 0 120.012-53.84 120.012-120.016S316.297 199.816 250.12 199.816c-66.18 0-120.016 53.836-120.016 120.012s53.84 120.016 120.016 120.016zm0-209.793c49.504 0 89.777 40.273 89.777 89.777s-40.273 89.781-89.777 89.781-89.781-40.277-89.781-89.78 40.277-89.778 89.781-89.778zm0 0" data-original="#000000" />
+                        <path d="M451.344 32.191H423.77V15.117C423.77 6.77 417 0 408.652 0s-15.117 6.77-15.117 15.117v17.074h-29.707V15.117C363.828 6.77 357.058 0 348.707 0c-8.348 0-15.117 6.77-15.117 15.117v17.074H166.652V15.117c0-8.347-6.77-15.117-15.12-15.117-8.348 0-15.118 6.77-15.118 15.117v17.074h-29.707V15.117C106.707 6.77 99.937 0 91.586 0c-8.348 0-15.117 6.77-15.117 15.117v17.074H48.89C21.934 32.191 0 54.125 0 81.086v382.023C0 490.066 21.934 512 48.89 512h402.454c26.96 0 48.89-21.934 48.89-48.89V81.085c0-26.961-21.933-48.895-48.89-48.895zm18.652 430.918c0 10.286-8.367 18.657-18.652 18.657H48.89c-10.286 0-18.657-8.371-18.657-18.657V157.9h439.762zM30.234 81.086c0-10.29 8.371-18.656 18.657-18.656h27.578v17.074c0 8.348 6.77 15.117 15.12 15.117 8.348 0 15.118-6.77 15.118-15.117V62.43h29.707v17.074c0 8.348 6.77 15.117 15.121 15.117 8.348 0 15.117-6.77 15.117-15.117V62.43H333.59v17.074c0 8.348 6.77 15.117 15.12 15.117 8.349 0 15.118-6.77 15.118-15.117V62.43h29.707v17.074c0 8.348 6.77 15.117 15.117 15.117 8.352 0 15.121-6.77 15.121-15.117V62.43h27.57C461.63 62.43 470 70.797 470 81.086v46.574H30.234zm0 0" data-original="#000000" />
+                    </svg>
+                    <span class="mr-4">Are there any special discounts or promotions available during the event.
+                        <span class="text-xs text-gray-400 mt-0.5 block">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 fill-current ml-auto shrink-0 rotate-180" viewBox="0 0 24 24">
+                        <span class="w-[68px] block text-center py-0.5 border-2 border-green-500 text-green-500 font-semibold rounded text-xs">Complète</span> </svg>
+                </button>
+                <div class="pb-5 px-6">
+                    <p class="text-sm text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor arcu,
+                        at fermentum dui. Maecenas
+                        vestibulum a turpis in lacinia. Proin aliquam turpis at erat venenatis malesuada. Sed semper, justo vitae
+                        consequat fermentum, felis diam posuere ante, sed fermentum quam justo in dui. Nulla facilisi. Nulla aliquam
+                        auctor purus, vitae dictum dolor sollicitudin vitae. Sed bibendum purus in efficitur consequat. Fusce et
+                        tincidunt arcu. Curabitur ac lacus lectus. Morbi congue facilisis sapien, a semper orci facilisis in.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <div class="font-[sans-serif] space-y-4 mt-4 ml-20">
+            <div class="shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-lg border-l-8 border-blue-600" role="accordion">
+                <button type="button" class="w-full text-base font-semibold text-left py-5 px-6 text-blue-600 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-current w-8 mr-4" viewBox="0 0 512 512">
+                        <path d="M227.656 357.508a15.13 15.13 0 0 0 10.692 4.426c4.007 0 7.851-1.59 10.687-4.426l53.973-53.973c5.906-5.906 5.906-15.476 0-21.383-5.903-5.902-15.477-5.902-21.38 0l-43.28 43.282-19.735-19.735c-5.906-5.902-15.476-5.902-21.383 0-5.902 5.903-5.902 15.477 0 21.383zm0 0" data-original="#000000" />
+                        <path d="M250.121 439.844c66.176 0 120.012-53.84 120.012-120.016S316.297 199.816 250.12 199.816c-66.18 0-120.016 53.836-120.016 120.012s53.84 120.016 120.016 120.016zm0-209.793c49.504 0 89.777 40.273 89.777 89.777s-40.273 89.781-89.777 89.781-89.781-40.277-89.781-89.78 40.277-89.778 89.781-89.778zm0 0" data-original="#000000" />
+                        <path d="M451.344 32.191H423.77V15.117C423.77 6.77 417 0 408.652 0s-15.117 6.77-15.117 15.117v17.074h-29.707V15.117C363.828 6.77 357.058 0 348.707 0c-8.348 0-15.117 6.77-15.117 15.117v17.074H166.652V15.117c0-8.347-6.77-15.117-15.12-15.117-8.348 0-15.118 6.77-15.118 15.117v17.074h-29.707V15.117C106.707 6.77 99.937 0 91.586 0c-8.348 0-15.117 6.77-15.117 15.117v17.074H48.89C21.934 32.191 0 54.125 0 81.086v382.023C0 490.066 21.934 512 48.89 512h402.454c26.96 0 48.89-21.934 48.89-48.89V81.085c0-26.961-21.933-48.895-48.89-48.895zm18.652 430.918c0 10.286-8.367 18.657-18.652 18.657H48.89c-10.286 0-18.657-8.371-18.657-18.657V157.9h439.762zM30.234 81.086c0-10.29 8.371-18.656 18.657-18.656h27.578v17.074c0 8.348 6.77 15.117 15.12 15.117 8.348 0 15.118-6.77 15.118-15.117V62.43h29.707v17.074c0 8.348 6.77 15.117 15.121 15.117 8.348 0 15.117-6.77 15.117-15.117V62.43H333.59v17.074c0 8.348 6.77 15.117 15.12 15.117 8.349 0 15.118-6.77 15.118-15.117V62.43h29.707v17.074c0 8.348 6.77 15.117 15.117 15.117 8.352 0 15.121-6.77 15.121-15.117V62.43h27.57C461.63 62.43 470 70.797 470 81.086v46.574H30.234zm0 0" data-original="#000000" />
+                    </svg>
+                    <span class="mr-4">Are there any special discounts or promotions available during the event.
+                        <span class="text-xs text-gray-400 mt-0.5 block">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 fill-current ml-auto shrink-0 rotate-180" viewBox="0 0 24 24">
+                        <span class="w-[68px] block text-center py-0.5 border-2 border-yellow-500 text-yellow-500 font-semibold rounded text-xs">En cours</span> </svg>
+                </button>
+                <div class="pb-5 px-6">
+                    <p class="text-sm text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor arcu,
+                        at fermentum dui. Maecenas
+                        vestibulum a turpis in lacinia. Proin aliquam turpis at erat venenatis malesuada. Sed semper, justo vitae
+                        consequat fermentum, felis diam posuere ante, sed fermentum quam justo in dui. Nulla facilisi. Nulla aliquam
+                        auctor purus, vitae dictum dolor sollicitudin vitae. Sed bibendum purus in efficitur consequat. Fusce et
+                        tincidunt arcu. Curabitur ac lacus lectus. Morbi congue facilisis sapien, a semper orci facilisis in.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+
+    <script>
+        function dropDown() {
+            document.querySelector('#submenu').classList.toggle('hidden')
+            document.querySelector('#arrow').classList.toggle('rotate-0')
+        }
+        dropDown()
+
+        function Openbar() {
+            document.querySelector('.sidebar').classList.toggle('left-[-300px]')
+        }
+    </script>
+</body>
+
+</html>
